@@ -23,6 +23,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * Indicates that the annotated class will participate in the Errai UIBindable framework.
+ * It must contains {@link Namespace} declaration.
+ *
  * @author Dmitrii Tikhomirov <chani@me.com>
  * Created by treblereel on 2/6/18.
  */

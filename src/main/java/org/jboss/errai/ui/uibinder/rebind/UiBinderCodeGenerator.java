@@ -53,6 +53,8 @@ import static org.jboss.errai.codegen.meta.MetaClassFactory.parameterizedAs;
 import static org.jboss.errai.codegen.meta.MetaClassFactory.typeParametersOf;
 
 /**
+ * Generates UiBinderStarterImpl which contains namespaces to packages mapping
+ *
  * @author Dmitrii Tikhomirov <chani@me.com>
  * Created by treblereel on 2/7/18.
  */

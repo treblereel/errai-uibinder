@@ -31,6 +31,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * It replaces tags with namespaces from template with original elements.
+ *
  * @author Dmitrii Tikhomirov <chani@me.com>
  * Created by treblereel on 2/21/18.
  */

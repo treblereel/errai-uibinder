@@ -23,6 +23,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * Properties holder for {@link UiBinder} templates.
+ * {@link #ns()} sets the shurtcut for the elements package
+ *
+ * {@link #name()} is the package name for elements
+ *
+ *
  * @author Dmitrii Tikhomirov <chani@me.com>
  * Created by treblereel on 2/6/18.
  */
