@@ -27,6 +27,7 @@ import org.jboss.errai.codegen.builder.ClassStructureBuilder;
 import org.jboss.errai.codegen.builder.ConstructorBlockBuilder;
 import org.jboss.errai.codegen.builder.ContextualStatementBuilder;
 import org.jboss.errai.codegen.builder.impl.ClassBuilder;
+import org.jboss.errai.codegen.meta.MetaClass;
 import org.jboss.errai.codegen.util.Stmt;
 import org.jboss.errai.common.client.api.annotations.ClassNames;
 import org.jboss.errai.common.client.api.annotations.Properties;
@@ -47,6 +48,7 @@ import java.util.Map;
 import java.util.StringJoiner;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import static org.jboss.errai.codegen.builder.impl.ObjectBuilder.newInstanceOf;
 import static org.jboss.errai.codegen.meta.MetaClassFactory.parameterizedAs;
 import static org.jboss.errai.codegen.meta.MetaClassFactory.typeParametersOf;
 
@@ -183,7 +185,7 @@ public class UiBinderCodeGenerator extends Generator {
 
         String tag = arrayToString(clazz.getAnnotation(org.jboss.errai.common.client.api.annotations.Element.class).value());
         String clazzNames = "";
-        Map<String, String> properties = new HashMap();
+        Map<String, String> properties = new HashMap<>();
 
         if (clazz.isAnnotationPresent(ClassNames.class)) {
             clazzNames = arrayToString(clazz.getAnnotation(org.jboss.errai.common.client.api.annotations.ClassNames.class).value());
@@ -211,8 +213,8 @@ public class UiBinderCodeGenerator extends Generator {
     }
 
     private void addMaps() {
-        body.publicField("templateToNsMapper", parameterizedAs(Map.class, typeParametersOf(String.class, parameterizedAs(Map.class, typeParametersOf(String.class, String.class))))).initializesWith(Stmt.newObject(HashMap.class)).finish();
-        body.publicField("packageHolder", parameterizedAs(Map.class, typeParametersOf(String.class, parameterizedAs(Map.class, typeParametersOf(String.class, ElementPropertiesHolder.class))))).initializesWith(Stmt.newObject(HashMap.class)).finish();
+        body.publicField("templateToNsMapper", parameterizedAs(Map.class, typeParametersOf(String.class, parameterizedAs(Map.class, typeParametersOf(String.class, String.class))))).initializesWith(newInstanceOf(parameterizedAs(HashMap.class, typeParametersOf(String.class, parameterizedAs(Map.class, typeParametersOf(String.class, String.class)))))).finish();
+        body.publicField("packageHolder", parameterizedAs(Map.class, typeParametersOf(String.class, parameterizedAs(Map.class, typeParametersOf(String.class, ElementPropertiesHolder.class))))).initializesWith(newInstanceOf(parameterizedAs(HashMap.class, typeParametersOf(String.class, parameterizedAs(Map.class, typeParametersOf(String.class, ElementPropertiesHolder.class)))))).finish();
     }
 
 
